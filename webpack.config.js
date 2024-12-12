@@ -17,6 +17,7 @@ export default {
     },
     chunkFormat: "array-push",
     chunkLoading: "jsonp",
+    globalObject: "globalThis",
   },
   cache: {
     type: "filesystem",
