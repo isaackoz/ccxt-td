@@ -957,10 +957,10 @@ export default class Exchange {
         try {
           // todo: possible sync alternatives: https://stackoverflow.com/questions/51069002/convert-import-to-synchronous
           this.httpProxyAgentModule = await import(
-            /* @vite-ignore */ "../static_dependencies/proxies/http-proxy-agent/index.js"
+            /* webpackIgnore: true */ "../static_dependencies/proxies/http-proxy-agent/index.js"
           );
           this.httpsProxyAgentModule = await import(
-            /* @vite-ignore */ "../static_dependencies/proxies/https-proxy-agent/index.js"
+            /* webpackIgnore: true */ "../static_dependencies/proxies/https-proxy-agent/index.js"
           );
         } catch (e) {
           // if several users are using those frameworks which cause exceptions,
@@ -968,11 +968,11 @@ export default class Exchange {
           try {
             // @ts-ignore
             this.httpProxyAgentModule = await import(
-              /* @vite-ignore */ "http-proxy-agent"
+              /* webpackIgnore: true */ "http-proxy-agent"
             );
             // @ts-ignore
             this.httpsProxyAgentModule = await import(
-              /* @vite-ignore */ "https-proxy-agent"
+              /* webpackIgnore: true */ "https-proxy-agent"
             );
           } catch (e) {}
         }
@@ -980,7 +980,7 @@ export default class Exchange {
           try {
             // @ts-ignore
             this.socksProxyAgentModule = await import(
-              /* @vite-ignore */ "socks-proxy-agent"
+              /* webpackIgnore: true */ "socks-proxy-agent"
             );
           } catch (e) {}
           this.socksProxyAgentModuleChecked = true;
@@ -1043,7 +1043,7 @@ export default class Exchange {
   async loadHttpProxyAgent() {
     // for `http://` protocol proxy-urls, we need to load `http` module only on first call
     if (!this.httpAgent) {
-      const httpModule = await import(/* @vite-ignore */ "node:http");
+      const httpModule = await import(/* webpackIgnore: true */ "node:http");
       this.httpAgent = new httpModule.Agent();
     }
     return this.httpAgent;
@@ -1075,7 +1075,9 @@ export default class Exchange {
     if (isNode) {
       if (!this.nodeHttpModuleLoaded) {
         this.nodeHttpModuleLoaded = true;
-        const httpsModule = await import(/* @vite-ignore */ "node:https");
+        const httpsModule = await import(
+          /* webpackIgnore: true */ "node:https"
+        );
         this.httpsAgent = new httpsModule.Agent({ keepAlive: true });
       }
     }
@@ -1150,7 +1152,7 @@ export default class Exchange {
         }
         try {
           const module = await import(
-            /* @vite-ignore */ "../static_dependencies/node-fetch/index.js"
+            /* webpackIgnore: true */ "../static_dependencies/node-fetch/index.js"
           );
           this.AbortError = module.AbortError;
           this.fetchImplementation = module.default;

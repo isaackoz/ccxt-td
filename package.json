@@ -1,13 +1,14 @@
 {
   "name": "@ikoz/ccxt-traderdash",
-  "version": "4.4.39.8",
+  "version": "4.4.39.9",
   "description": "Fork of CCXT with custom bundle for TraderDash",
   "unpkg": "dist/ccxt.browser.min.js",
   "type": "module",
+  "types": "./js/ccxt.d.ts",
   "exports": {
     ".": {
-      "import": "./js/ccxt.js",
-      "require": "./dist/ccxt.cjs"
+      "types": "./js/ccxt.d.ts",
+      "default": "./dist/ccxt.browser.min.js"
     }
   },
   "bin": {
@@ -149,7 +150,6 @@
     "test-freshness": "tsx ./utils/test-freshness.ts",
     "benchmark": "tsx examples/ts/benchmark.ts"
   },
-  "types": "./js/ccxt.d.ts",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.3",
     "@rollup/plugin-json": "^4.1.0",
@@ -276,6 +276,7 @@
   },
   "ethereum": "0x26a3CB49578F07000575405a57888681249c35Fd",
   "dependencies": {
+    "node-polyfill-webpack-plugin": "^4.1.0",
     "ws": "^8.8.1"
   }
 }
