@@ -1,4 +1,3 @@
-
 // @ts-nocheck
 // ----------------------------------------------------------------------------
 // There's been a lot of messing with this code...
@@ -11,27 +10,23 @@
 // - make sure it works with Angular.js
 // - make sure it does not break other possible usage scenarios
 
-const isBrowser = typeof window !== 'undefined'
+const isBrowser = typeof window !== "undefined";
 
-const isElectron = typeof process !== 'undefined' &&
-                   typeof process.versions !== 'undefined' &&
-                   typeof process.versions.electron !== 'undefined'
+const isElectron =
+  typeof process !== "undefined" &&
+  typeof process.versions !== "undefined" &&
+  typeof process.versions.electron !== "undefined";
 
-const isWebWorker = typeof WorkerGlobalScope !== 'undefined' && (self instanceof WorkerGlobalScope)
+const isWebWorker =
+  typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
 
-const isWindows = typeof process !== 'undefined' && process.platform === "win32"
+const isWindows =
+  typeof process !== "undefined" && process.platform === "win32";
 
-const isDeno = typeof Deno !== 'undefined'
+const isDeno = typeof Deno !== "undefined";
 
-const isNode = !(isBrowser || isWebWorker || isDeno)
+const isNode = false;
 
 // ----------------------------------------------------------------------------
 
-export {
-    isBrowser,
-    isElectron,
-    isWebWorker,
-    isNode,
-    isDeno,
-    isWindows,
-}
+export { isBrowser, isElectron, isWebWorker, isNode, isDeno, isWindows };
