@@ -1,7 +1,8 @@
 {
   "name": "@ikoz/ccxt-traderdash",
-  "version": "4.4.39.1",
+  "version": "4.4.39.2",
   "description": "Fork of CCXT with custom bundle for TraderDash",
+  "main": "dist/ccxt.browser.min.js",
   "unpkg": "dist/ccxt.browser.min.js",
   "type": "module",
   "exports": {
