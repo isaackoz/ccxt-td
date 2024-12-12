@@ -10,7 +10,7 @@
 // - make sure it works with Angular.js
 // - make sure it does not break other possible usage scenarios
 
-const isBrowser = typeof window !== "undefined";
+const isBrowser = true;
 
 const isElectron =
   typeof process !== "undefined" &&
