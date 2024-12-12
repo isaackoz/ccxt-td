@@ -6,18 +6,18 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./js/ccxt.js",
-      "require": "./dist/ccxt.cjs"
+      "import": "./dist/ccxt.browser.min.js",
+      "require": "./dist/ccxt.browser.min.js"
     }
+  },
+  "browser": {
+    "./js/ccxt.js": "./dist/ccxt.browser.min.js"
   },
   "bin": {
     "ccxt": "examples/js/cli.js"
   },
   "engines": {
     "node": ">=15.0.0"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.com/"
   },
   "repository": {
     "type": "git",
